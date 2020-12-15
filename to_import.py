@@ -133,11 +133,16 @@ def accPlotter(history):
     
 def modelArch():
     model = Sequential()
-
+    model.add(Conv2D(16 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu' , input_shape = (64,64,3)))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
     model.add(Conv2D(16 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu' , input_shape = (64,64,3)))
     model.add(BatchNormalization())
     model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
 
+    model.add(Conv2D(32 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu' , input_shape = (64,64,3)))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
     model.add(Conv2D(32 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu' , input_shape = (64,64,3)))
     model.add(BatchNormalization())
     model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
@@ -146,7 +151,13 @@ def modelArch():
     model.add(Conv2D(64 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu'))
     model.add(BatchNormalization())
     model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
+    model.add(Conv2D(64 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu'))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
 
+    model.add(Conv2D(128 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu'))
+    model.add(BatchNormalization())
+    model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
     model.add(Conv2D(128 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu'))
     model.add(BatchNormalization())
     model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
